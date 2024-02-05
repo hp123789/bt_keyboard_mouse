@@ -21,5 +21,5 @@ cd ../.config/
 mkdir autostart
 cd autostart/
 sudo touch local.desktop
-sudo cp ~/home/username/bt_keyboard_mouse/local.desktop ./local.desktop
+sudo cp /home/username/bt_keyboard_mouse/local.desktop ./local.desktop
 sudo reboot
