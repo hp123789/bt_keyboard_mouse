@@ -13,12 +13,13 @@ sudo systemctl daemon-reload
 sudo /etc/init.d/bluetooth start
 sudo apt-get install python3-gi -y
 sudo apt install python3-pip -y
+sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
 sudo pip3 install PyBluez
 sudo pip3 install redis
 sudo pip3 install numpy
-cd ~/.config/
+cd ../.config/
 mkdir autostart
 cd autostart/
 sudo touch local.desktop
-sudo cp ~/bt_keyboard_mouse/local.desktop ~/.config/autostart/local.desktop
+sudo cp ~/home/username/bt_keyboard_mouse/local.desktop ./local.desktop
 sudo reboot
