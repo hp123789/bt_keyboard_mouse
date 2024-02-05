@@ -16,4 +16,9 @@ sudo apt install python3-pip -y
 sudo pip3 install PyBluez
 sudo pip3 install redis
 sudo pip3 install numpy
+cd ~/.config/
+mkdir autostart
+cd autostart/
+sudo touch local.desktop
+sudo cp ~/bt_keyboard_mouse/local.desktop ~/.config/autostart/local.desktop
 sudo reboot
