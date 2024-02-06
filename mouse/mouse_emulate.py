@@ -7,6 +7,7 @@ import dbus.service
 import dbus.mainloop.glib
 import redis
 import numpy as np
+import time
 
 
 class MouseClient():
@@ -49,7 +50,7 @@ class MouseClient():
 			
 			read_result = self.r.xread(
                     {
-                        self.input_stream: self.last_input_entry_seen,
+                        self.input_stream: "$",
                         self.discrete_input_stream: last_discrete_input_entry_seen,
                     }
                 )
@@ -82,13 +83,18 @@ class MouseClient():
 				if (x_final < 0):
 					x_final = 256 + x_final
 
-				if (y_final < 0):
-					y_final = 256 + y_final
+				if (y_final > 0):
+					y_final = 256 - y_final
+
+				if (y_final > 0):
+					y_final = -1 * y_final
 
 				self.state[1] = int(x_final)
 				self.state[2] = int(y_final)
 
 				self.send_current()
+
+				time.sleep(0.01)
 				
 
 
